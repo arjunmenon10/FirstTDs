@@ -12,7 +12,6 @@ library(ggtext)
 library(ggforce)
 library(stats)
 library(mclust)
-library(mdthemes)
 library(gghighlight)
 library(na.tools)
 library(stringr)
@@ -21,7 +20,6 @@ library(ggbeeswarm)
 library(vip)
 library(gtExtras)
 library(nflfastR)
-library(ThemePark)
 library(knitr)
 library(nflplotR)
 library(shiny)
@@ -32,9 +30,9 @@ library(reactable)
 library(reactablefmtr)
 library(shinyWidgets)
 
-first_td_off_all <- read_csv("offensefirstTD.csv")
-first_td_def_all <- read_csv("defensefirstTD.csv")
-playersjoin <- read_csv("playerleaders.csv")
+first_td_off_all <- read_csv("https://raw.githubusercontent.com/arjunmenon10/FirstTDs/main/offensefirstTD.csv")
+first_td_def_all <- read_csv("https://raw.githubusercontent.com/arjunmenon10/FirstTDs/main/defensefirstTD.csv")
+playersjoin <- read_csv("https://raw.githubusercontent.com/arjunmenon10/FirstTDs/main/playerleaders.csv")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -48,7 +46,7 @@ ui <- fluidPage(
                  tabPanel("Offense",
                           fluidRow(
                             column(6, align = 'center',
-                                   selectInput("sznchoose1", "Season", c(2019, 2020, 2021, 2022, 2023), selected = 2022))),
+                                   selectInput("sznchoose1", "Season", c(2021, 2022, 2023, 2024), selected = 2024))),
                           mainPanel(
                             reactableOutput("offensetbl"), width = 12
                           )
@@ -56,7 +54,7 @@ ui <- fluidPage(
                  tabPanel("Defense",
                           fluidRow(
                             column(6, align = 'center',
-                                   selectInput("sznchoose2", "Season", c(2019, 2020, 2021, 2022, 2023), selected = 2022))),
+                                   selectInput("sznchoose2", "Season", c(2021, 2022, 2023, 2024), selected = 2024))),
                           mainPanel(
                             reactableOutput("defensetbl"), width = 12
                           )
@@ -64,7 +62,7 @@ ui <- fluidPage(
                  tabPanel("Player Leaders",
                           fluidRow(
                             column(6, align = 'center',
-                                   selectInput("sznchoose3", "Season", c(2019, 2020, 2021, 2022, 2023), selected = 2022)),
+                                   selectInput("sznchoose3", "Season", c(2021, 2022, 2023, 2024), selected = 2024)),
                             column(6, align = 'center',
                                    pickerInput("teaminput","Team:", choices=c("ARI", 'ATL', 'BAL', 'BUF',
                                                                                'CAR', 'CHI', 'CIN', 'CLE', 
